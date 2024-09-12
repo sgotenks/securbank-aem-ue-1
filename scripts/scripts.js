@@ -10,6 +10,7 @@ import {
   decorateBlocks,
   decorateTemplateAndTheme,
   waitForLCP,
+  buildBlock,
   loadBlocks,
   loadCSS,
   toCamelCase,
@@ -104,8 +105,9 @@ function buildHeroBlock(main) {
   const picture = main.querySelector('picture');
   // eslint-disable-next-line no-bitwise
   if (h1 && picture && (h1.compareDocumentPosition(picture) & Node.DOCUMENT_POSITION_PRECEDING)) {
+    console.log('autoblocking starting.. hold on to your hats!');
     const section = document.createElement('div');
-    section.append(buildBlock('hero', { elems: [picture, h1, h2, p1, p2] }));
+    section.append(buildBlock('feature', { elems: [picture, h1, h2, p1, p2] }));
     main.prepend(section);
   }
 }
